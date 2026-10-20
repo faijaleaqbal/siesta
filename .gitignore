@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Local runtime state — never commit someone's fridge contents.
+.siesta/
+_siesta-inbox/
+_realrun/
+*.sqlite3
+*.db
+siesta-benchmark.json
+
+# Model artifacts / large binaries
+*.gguf
+*.onnx
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

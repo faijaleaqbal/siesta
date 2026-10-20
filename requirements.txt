@@ -1,0 +1,15 @@
+# Siesta core has NO third-party runtime dependencies.
+# Everything below is optional and only needed for the web UI or running tests.
+#
+#   pip install -r requirements.txt
+#
+# The agent itself talks to a local Ollama server over HTTP using the
+# Python standard library (urllib), so `python -m siesta` works on a bare
+# Python 3.10+ install with no wheels to download.
+
+# Web UI (siesta serve)
+fastapi>=0.110
+uvicorn>=0.27
+
+# Tests
+pytest>=8.0

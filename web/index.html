@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Siesta — naps until something changes</title>
+<link rel="stylesheet" href="/style.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦥</text></svg>" />
+</head>
+<body>
+  <header>
+    <h1><span class="glyph">🦥</span> Siesta</h1>
+    <p class="tagline">A local agent that naps until something changes, then does the chores you keep putting off.</p>
+    <div class="meta" id="meta">connecting…</div>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="card-head">
+        <h2>Tonight's digest</h2>
+        <button id="scan" class="primary">Run a pass</button>
+      </div>
+      <div id="digest" class="digest empty">Nothing yet. Drop a photo in the inbox and run a pass.</div>
+    </section>
+
+    <div class="grid">
+      <section class="card">
+        <div class="card-head"><h2>Use soon</h2></div>
+        <ul id="use-first" class="list"><li class="muted">—</li></ul>
+      </section>
+
+      <section class="card">
+        <div class="card-head"><h2>To pick up</h2></div>
+        <ul id="shopping" class="list"><li class="muted">—</li></ul>
+      </section>
+
+      <section class="card">
+        <div class="card-head"><h2>Pantry</h2></div>
+        <ul id="pantry" class="list"><li class="muted">—</li></ul>
+      </section>
+
+      <section class="card">
+        <div class="card-head"><h2>Cost ledger</h2></div>
+        <div id="ledger" class="ledger muted">—</div>
+      </section>
+    </div>
+
+    <section class="card">
+      <div class="card-head"><h2>Drop a photo here</h2></div>
+      <div id="drop" class="drop">
+        <p>Fridge photo, receipt, or chat screenshot.<br /><span class="muted">It is written to your local inbox and never uploaded anywhere.</span></p>
+      </div>
+      <div id="upload-note" class="note"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head"><h2>Cascade benchmark</h2><button id="bench">Measure</button></div>
+      <div id="bench-out" class="ledger muted">Run the benchmark to see what the cheap gate saves.</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Everything on this page was produced on this machine by open-weight models. No API key, no account, no network call.</p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

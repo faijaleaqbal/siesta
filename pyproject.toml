@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "siesta"
+version = "0.1.0"
+description = "A local-first agent that naps until something changes, then does the chores you keep putting off."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Faijal Eaqbal" }]
+keywords = ["local-llm", "ollama", "open-weights", "offline-first", "agents", "privacy"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# The core agent deliberately has ZERO runtime dependencies: it talks to Ollama
+# over plain HTTP using the standard library, so it runs anywhere Python does.
+dependencies = []
+
+[project.optional-dependencies]
+web = ["fastapi>=0.110", "uvicorn>=0.27"]
+dev = ["pytest>=8.0", "fastapi>=0.110", "uvicorn>=0.27"]
+
+[project.scripts]
+siesta = "siesta.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/faijaleaqbal/siesta"
+
+[tool.setuptools.packages.find]
+include = ["siesta*"]
+
+[tool.setuptools.package-data]
+siesta = ["../web/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+filterwarnings = ["ignore::DeprecationWarning"]
