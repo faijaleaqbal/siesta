@@ -436,3 +436,11 @@ pytest -q
 
 MIT. The models are Apache-2.0 (Qwen) and Apache-2.0 (nomic-embed-text).
 Siesta is not affiliated with, endorsed by, or sponsored by any of them.
+
+---
+
+## Submitting this to a challenge
+
+`docs/SUBMISSION.md` has the full checklist: where the staged DEV draft
+lives, the saved agent session, the deadline, and the four things to do
+before hitting publish.
