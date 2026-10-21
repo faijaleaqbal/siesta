@@ -18,6 +18,17 @@ python -m siesta scan
 
 ---
 
+## The live thing, in pictures
+
+| | |
+|---|---|
+| **The local web UI** — the digest, the pantry, and the cost ledger of every model call the agent has made | ![The Siesta local web UI](docs/siesta-ui.png) |
+| **The published post** on DEV, tagged `#hf26challenge` | ![The published DEV post](docs/screenshots/dev-post.png) |
+| **The saved agent session** — 39 messages of the actual build, published so the transcript is readable | ![The published agent session](docs/screenshots/agent-session.png) |
+| **This repository** | ![The GitHub repository](docs/screenshots/github-repo.png) |
+
+---
+
 ## The problem with every other "AI assistant"
 
 Most AI helpers want your data. You photograph your fridge, and the image

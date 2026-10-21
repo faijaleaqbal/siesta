@@ -535,6 +535,8 @@ The full transcript is embedded above — all 39 messages, including the
 prompt experiments, the image-placement bug, the receipt regression and the
 benchmark.
 
+[Open the session on DEV](https://dev.to/agent_sessions/siesta-building-a-local-first-agent-that-naps-until-something-changes-gnwcdy)
+
 And the code, with the 61 tests and the two evaluation scripts that produced
 every number above:
 
