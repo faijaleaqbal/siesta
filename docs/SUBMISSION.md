@@ -1,6 +1,7 @@
-# Submission checklist — Week 3 "Slow and Steady"
+# Submission status — Week 3 "Slow and Steady"
 
-Everything needed to turn this repo into a live DEV entry.
+Everything needed to turn this repo into a live DEV entry, and where each
+piece currently stands.
 
 ## Where things are
 
@@ -8,46 +9,51 @@ Everything needed to turn this repo into a live DEV entry.
 |---|---|
 | Challenge | [Hacktoberfest Open-Source AI Challenge: Week 3](https://dev.to/events/81) — theme *Slow and Steady* |
 | Deadline | **25 October 2026, 11:59 PM PDT** |
-| Required tag | `#hf26challenge` (the post also carries `#devchallenge`) |
-| Repo | `github.com/faijaleaqbal/siesta` — **not created yet**, see below |
-| DEV draft | [Edit the draft](https://dev.to/faijaleaqbal/siesta-the-local-agent-that-naps-so-you-dont-have-to-2d2n-temp-slug-163183/edit) (article id `4885250`) |
-| Agent session | [siesta-building-a-local-first-agent-that-naps-until-something-changes-gnwcdy](https://dev.to/agent_sessions/siesta-building-a-local-first-agent-that-naps-until-something-changes-gnwcdy) (id `1073`, unpublished) |
-| Post source | `docs/DEV_POST.md` — the exact text that is in the draft |
+| Required tag | `#hf26challenge` (the post also carries `#devchallenge`, `ollama`, `opensource`) |
+| Repo | **live** — https://github.com/faijaleaqbal/siesta (public, MIT, 2 commits, main branch) |
+| DEV post | **live** — https://dev.to/faijaleaqbal/siesta-the-local-agent-that-naps-so-you-dont-have-to-4gfd (article id `4885250`, published 2026-10-21T04:18:16Z) |
+| Agent session | id `1073`, 39 messages, embedded in the post |
+| Post source | `docs/DEV_POST.md` — the exact text that is in the published post |
 | Benchmark data | `docs/benchmark.json` |
-| UI screenshot | `docs/siesta-ui.png` |
+| UI screenshot | `docs/siesta-ui.png` (the post's image resolves through DEV's own image proxy) |
 
-## Before you publish
+## What has been verified on the live post
 
-1. **Create the GitHub repo and push.** The post links to
-   `github.com/faijaleaqbal/siesta`, and the screenshot is referenced as
-   `raw.githubusercontent.com/faijaleaqbal/siesta/main/docs/siesta-ui.png`, so
-   both the link and the image need the repo to exist.
+- The mermaid diagram renders.
+- The screenshot renders — DEV fetched `raw.githubusercontent.com/faijaleaqbal/siesta/main/docs/siesta-ui.png`
+  and re-hosted it, so the image does not depend on GitHub staying up.
+- The agent session embed renders, showing "39 of 39 messages" and a *Show more*
+  control, with all 39 messages in the post's HTML.
+- The GitHub link and the `#hf26challenge` tag are present.
+- The em-dashes and the sloth emoji survived the round trip — no mojibake.
 
-   ```bash
-   cd siesta
-   git remote add origin https://github.com/faijaleaqbal/siesta.git
-   git push -u origin main
-   ```
+## Two small things left, both in the DEV web UI
 
-2. **Check the screenshot renders** in the draft. The raw GitHub URL only
-   resolves once the repo is pushed.
+The DevRelay gateway exposes no write route for either of these, so they need
+the editor.
 
-3. **Confirm the AI disclosure badge.** The draft was updated with
-   `ai_disclosure_level: some_ai`, but the API does not expose that field for
-   unpublished drafts, so verify it in the editor before publishing.
+1. **The AI disclosure badge reads "Not Disclosed".**
+   `ai_disclosure_level` is only settable at creation time — the API accepts
+   the field on an update and then silently keeps the old value, and a
+   replacement article created through the MCP tool comes back with an API
+   record that cannot be read. Open the post's editor and set the AI
+   disclosure to **Some AI**, which is the honest level for a post an agent
+   drafted.
 
-4. **Read it once more in the editor.** The post is long, and the DEV editor
-   renders Liquid — the `{% agent_session 1073 %}` embed only renders for the
-   article's own author while the session is unpublished, so publish the
-   session too if you want the transcript visible to readers.
+2. **The agent session is still an unpublished private draft.**
+   The embed inside the post already renders for readers, but the
+   "Open the session on DEV" link 404s for anyone who is not the author.
+   Publishing the session at
+   https://dev.to/agent_sessions/siesta-building-a-local-first-agent-that-naps-until-something-changes-gnwcdy
+   fixes the link. There is no API route for it — `PUT`/`PATCH`/`POST .../publish`
+   on `/api/agent_sessions/<slug>` all 404.
 
-5. **Publish the session** at
-   `dev.to/agent_sessions/siesta-building-a-local-first-agent-that-naps-until-something-changes-gnwcdy`
-   so the embed works for everyone.
+## Housekeeping
 
-6. **Publish the post.** It is staged as a draft, not published. DEV's
-   submission rule for this challenge is a published post with the required
-   tag, so publishing it is what submits the entry.
+Two stray unpublished drafts are on the profile and can be deleted in the DEV
+UI: the two throwaway sessions named `probe` and `probe2`, and one duplicate
+draft of this post (id `4886839`, created while testing the disclosure
+field — it is unpublished, and the live post is id `4885250`).
 
 ## If a judge wants to run it
 
