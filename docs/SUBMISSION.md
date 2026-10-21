@@ -9,54 +9,36 @@ piece currently stands.
 |---|---|
 | Challenge | [Hacktoberfest Open-Source AI Challenge: Week 3](https://dev.to/events/81) — theme *Slow and Steady* |
 | Deadline | **25 October 2026, 11:59 PM PDT** |
-| Required tag | `#hf26challenge` (the post also carries `#devchallenge`, `ollama`, `opensource`) |
-| Repo | **live** — https://github.com/faijaleaqbal/siesta (public, MIT, 2 commits, main branch) |
+| Required tag | `#hf26challenge` (the post also carries `#devchallenge`, `opensource`, `ollama`) |
+| Repo | **live** — https://github.com/faijaleaqbal/siesta (public, MIT, 8 commits, 54 files, 61 passing tests) |
 | DEV post | **live** — https://dev.to/faijaleaqbal/siesta-the-local-agent-that-naps-so-you-dont-have-to-4gfd (article id `4885250`, published 2026-10-21T04:18:16Z) |
-| Agent session | id `1073`, 39 messages, embedded in the post |
-| Post source | `docs/DEV_POST.md` — the exact text that is in the published post |
+| AI disclosure | **some_ai / AI-assisted** — set on the article |
+| Agent session | **public** — https://dev.to/agent_sessions/siesta-building-a-local-first-agent-that-naps-until-something-changes-gnwcdy (id `1073`, 39 messages), embedded in the post |
+| Post source | `docs/DEV_POST.md` — the exact text that is published |
+| Screenshots | `docs/screenshots/` — regenerate with `python scripts/capture_screenshots.py` |
 | Benchmark data | `docs/benchmark.json` |
-| UI screenshot | `docs/siesta-ui.png` (the post's image resolves through DEV's own image proxy) |
 
-## What has been verified on the live post
+## Verified on the live pages
 
 - The mermaid diagram renders.
-- The screenshot renders — DEV fetched `raw.githubusercontent.com/faijaleaqbal/siesta/main/docs/siesta-ui.png`
-  and re-hosted it, so the image does not depend on GitHub staying up.
-- The agent session embed renders, showing "39 of 39 messages" and a *Show more*
-  control, with all 39 messages in the post's public HTML.
+- The screenshot renders — DEV fetched
+  `raw.githubusercontent.com/faijaleaqbal/siesta/main/docs/siesta-ui.png` and
+  re-hosted it, so the image does not depend on GitHub staying up.
+- The agent session embed renders, showing "39 of 39 messages" and a
+  *Show more* control, with all 39 messages in the post's public HTML.
+- The session's own page returns HTTP 200 to a logged-out visitor, so the
+  "Open the session on DEV" link works for judges.
 - The GitHub link and the `#hf26challenge` tag are present.
 - The em-dashes and the sloth emoji survived the round trip — no mojibake.
-- There are no broken links: a standalone "Open the session on DEV" link was
-  removed because the session is a private draft and its page 404s for
-  non-authors. The transcript is embedded in full instead.
-
-## One small thing left, in the DEV web UI
-
-The DevRelay gateway exposes no write route for the agent session, so
-publishing it needs the editor.
-
-1. **The AI disclosure badge reads "Not Disclosed".**
-   `ai_disclosure_level` is only settable at creation time — the API accepts
-   the field on an update and then silently keeps the old value, and a
-   replacement article created through the MCP tool comes back with an API
-   record that cannot be read. Open the post's editor and set the AI
-   disclosure to **Some AI**, which is the honest level for a post an agent
-   drafted.
-
-2. **The agent session is still an unpublished private draft.**
-   The embed inside the post already renders for readers, so the submission
-   requirement is met either way. But if you publish the session at
-   https://dev.to/agent_sessions/siesta-building-a-local-first-agent-that-naps-until-something-changes-gnwcdy
-   you can add a link to it back in the "Show your work" section. There is no
-   API route for it — `PUT`/`PATCH`/`POST .../publish` on
-   `/api/agent_sessions/<slug>` all 404.
+- There are no broken links.
 
 ## Housekeeping
 
-Two stray unpublished drafts are on the profile and can be deleted in the DEV
-UI: the two throwaway sessions named `probe` and `probe2`, and one duplicate
-draft of this post (id `4886839`, created while testing the disclosure
-field — it is unpublished, and the live post is id `4885250`).
+Two throwaway unpublished sessions named `probe` and `probe2` are on the
+profile and can be deleted in the DEV UI — the gateway exposes no delete
+route for agent sessions. One duplicate draft of this post (id `4886839`,
+created while testing the disclosure field) is also unpublished and can be
+deleted; the live post is id `4885250`.
 
 ## If a judge wants to run it
 
