@@ -34,11 +34,9 @@ piece currently stands.
 
 ## Housekeeping
 
-Two throwaway unpublished sessions named `probe` and `probe2` are on the
-profile and can be deleted in the DEV UI — the gateway exposes no delete
-route for agent sessions. One duplicate draft of this post (id `4886839`,
-created while testing the disclosure field) is also unpublished and can be
-deleted; the live post is id `4885250`.
+Nothing left over. The profile has exactly one agent session (the published
+one) and one article (the published one). The scratch drafts and probe
+sessions created while working out the publishing API were cleaned up.
 
 ## If a judge wants to run it
 
