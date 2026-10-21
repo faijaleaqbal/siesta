@@ -24,3 +24,6 @@ siesta-benchmark.json
 .idea/
 .DS_Store
 Thumbs.db
+
+# Scratch scripts written at the repo root during a build session.
+_*.py
