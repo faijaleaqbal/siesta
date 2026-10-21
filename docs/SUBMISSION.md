@@ -23,14 +23,17 @@ piece currently stands.
 - The screenshot renders — DEV fetched `raw.githubusercontent.com/faijaleaqbal/siesta/main/docs/siesta-ui.png`
   and re-hosted it, so the image does not depend on GitHub staying up.
 - The agent session embed renders, showing "39 of 39 messages" and a *Show more*
-  control, with all 39 messages in the post's HTML.
+  control, with all 39 messages in the post's public HTML.
 - The GitHub link and the `#hf26challenge` tag are present.
 - The em-dashes and the sloth emoji survived the round trip — no mojibake.
+- There are no broken links: a standalone "Open the session on DEV" link was
+  removed because the session is a private draft and its page 404s for
+  non-authors. The transcript is embedded in full instead.
 
-## Two small things left, both in the DEV web UI
+## One small thing left, in the DEV web UI
 
-The DevRelay gateway exposes no write route for either of these, so they need
-the editor.
+The DevRelay gateway exposes no write route for the agent session, so
+publishing it needs the editor.
 
 1. **The AI disclosure badge reads "Not Disclosed".**
    `ai_disclosure_level` is only settable at creation time — the API accepts
@@ -41,12 +44,12 @@ the editor.
    drafted.
 
 2. **The agent session is still an unpublished private draft.**
-   The embed inside the post already renders for readers, but the
-   "Open the session on DEV" link 404s for anyone who is not the author.
-   Publishing the session at
+   The embed inside the post already renders for readers, so the submission
+   requirement is met either way. But if you publish the session at
    https://dev.to/agent_sessions/siesta-building-a-local-first-agent-that-naps-until-something-changes-gnwcdy
-   fixes the link. There is no API route for it — `PUT`/`PATCH`/`POST .../publish`
-   on `/api/agent_sessions/<slug>` all 404.
+   you can add a link to it back in the "Show your work" section. There is no
+   API route for it — `PUT`/`PATCH`/`POST .../publish` on
+   `/api/agent_sessions/<slug>` all 404.
 
 ## Housekeeping
 
